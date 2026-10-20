@@ -7,7 +7,7 @@ This folder is Leon's long-term memory.
 - **Leon** reads it, later through his own interface.
 - **Claude Code** adds session notes to `journal/`.
 
-It will live in a private GitHub repository (`knowledge`), so every change has a history.
+It is synced with the private GitHub repository **`Cojole3/hermes-knowledge`** every 15 minutes, so every change has a history. The sync runs on the server; you don't need to run git yourself.
 
 ## Folders
 
