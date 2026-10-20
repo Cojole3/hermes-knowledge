@@ -50,5 +50,7 @@ Updated: 2026-10-20 (first version, written from each project's own docs)
 | **Hermes setup** | This assistant: Hermes on the VPS | Being set up | [hermes-setup.md](hermes-setup.md) |
 
 ## What Hermes can reach
-- **GitHub repos:** Hermes can read them once phase 11 of the setup gives it read access.
-- **Local-only projects** (no GitHub remote: Lettera, Corpus, Playlist atelier, Training tools, LANEWAR): Hermes can't see them unless Leon pushes them to GitHub or shares files.
+- **GitHub repos (since 2026-10-20):** read-only copies of all of them are in `/workspace/repos/<name>`, refreshed hourly. New repos appear automatically.
+  - Folder names: `Lacande-Website`, `LacandERP`, `NFC-Candle-app`, `Phototheque`, `Render-tool`, `Serigrafia`, `Lacande-Design-Atelier`, `Carnet-enigmes` (Bureau des Énigmes), `Talented-CRM`, `OpenCookbook` (recipe prototype).
+  - Code changes go through Claude Code, after Leon's OK.
+- **Local-only projects** (no GitHub remote: Lettera, Corpus, Playlist atelier, Training tools, LANEWAR): Hermes can't see them until Leon pushes them to GitHub.

@@ -21,6 +21,9 @@ It is synced with the private GitHub repository **`Cojole3/hermes-knowledge`** e
 | `journal/` | Session notes written by Claude Code. Hermes reads them but doesn't edit them. |
 | `imports/claude/` | Leon's exported Claude history, sorted by topic. |
 | `skills/` | Later: how-to manuals shared with Claude Code. |
+| `digests/` | The nightly review: one page per day, `YYYY-MM-DD.md`, with what moved in each project, plus "Needs Leon" at the top when something needs his attention. |
+
+**Leon's code** isn't in this folder. Read-only copies of all his GitHub repositories are in `/workspace/repos/<name>`, refreshed every hour.
 
 ## Writing rules
 - **Format:** Markdown, plain language, short sections, headings a non-programmer understands.
