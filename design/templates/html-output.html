@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>[Title of the document] · Lacande</title>
+<!--
+  Lacande HTML output template · DRAFT v1 · 2026-10-20
+  For the documents and reports Hermes and Claude Code write.
+  Rules: hermes-knowledge/design/LACANDE-DESIGN.md (§11 "Documents and HTML outputs").
+
+  How to use
+  1. Copy this file to outputs/YYYY/YYYY-MM-DD-short-title.html and add a line to outputs/INDEX.md.
+  2. Replace every [bracketed] text. Keep the order: band, header, Needs Leon, sections, footer.
+     Delete the components you don't need. "Needs Leon" goes only when something needs him.
+  3. Don't add colours, typefaces, boxes, shadows, rounded corners or coloured badges.
+     One accent (Select red), a few times per page: where you are, links, one key number.
+     A state is a word (Done, Open, Needs Leon), not a coloured pill.
+  4. Keep it one file, with no external requests: no CDN, no Google Fonts, no tracking.
+  5. Write in the house voice: facts, short sentences, one idea per paragraph.
+
+  Fonts
+  - Spectral (titles) and Mattone (everything else) are used when they are installed on the
+    device. Otherwise the page falls back to Georgia and Arial and stays readable.
+  - To make the page look right everywhere, add a url(...) to each @font-face below, pointing
+    at the website's font files (Lacande-Website: content/spectral-regular.woff2,
+    content/spectral-medium.woff2, content/spectral-bold.woff2, content/mattone-regular.woff2,
+    content/mattone-bold.woff2), or inline them as data: URIs with a script. Never type base64
+    by hand.
+  - The wordmark is set as the word "lacande" in Mattone. With the lacande-mark font embedded,
+    replace it with <span class="mark">&#xE000;</span> (wordmark) or &#xE001; (lockup).
+-->
+<style>
+/* ---- Tokens: copied from design/tokens.css (keep the two in sync) ---- */
+:root {
+  --color-ink: #111;
+  --color-paper: #fff;
+  --color-ink-muted: #6B6B6B;
+  --select-red: #C50141;
+  --color-accent: var(--select-red);
+
+  --font-title: "Lacande Spectral", "Spectral", Georgia, "Times New Roman", serif;
+  --font-text: "Lacande Mattone", "Mattone", Arial, Helvetica, sans-serif;
+
+  --font-size: 18px;
+  --size-title: 42px;     --lh-title: 1.15;
+  --size-lead: 22px;      --lh-lead: 1.4;
+  --size-body: 18px;      --lh-body: 1.55;
+  --size-quote: 22px;     --lh-quote: 1.4;
+  --size-label: 14px;     --lh-label: 1.4;    --ls-label: 0.02em;  /* capitals; pending decision #12 */
+  --size-caption: 14px;   --lh-caption: 1.4;  --ls-caption: 0.02em;
+  --size-nav: 16px;       --lh-nav: 1.2;      --ls-nav: 0.05em;
+  --size-footer: 14px;    --lh-footer: 1.3;   --ls-footer: 0.02em;
+  --measure: 42em;        /* about 73 characters a line; pending decision #10 */
+
+  --rule: 2px;
+  --pad: 1rem;
+  --space: 6rem;
+  --space-media: 2.5rem;
+  --band-pad: 23px;
+  --tap-min: 24px;
+
+  /* Template choices (not website styles): section titles in Spectral at 29px (22px on
+     phones), and half the website's block space between the parts of a document. */
+  --size-section: 29px;
+  --gap-part: calc(var(--space) / 2);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size: 15px;
+    --size-title: 29px;   /* pending decision #11 */
+    --size-lead: 18px;
+    --size-body: 15px;
+    --size-quote: 18px;
+    --size-label: 13px;
+    --size-caption: 13px;
+    --size-section: 22px;
+    --pad: 12px;
+  }
+}
+
+/* ---- Fonts: installed copies first (see the note in the head) ---- */
+@font-face { font-family: "Lacande Spectral"; font-weight: 400; font-style: normal;
+  src: local("Spectral"), local("Spectral Regular"), local("Spectral-Regular"); }
+@font-face { font-family: "Lacande Spectral"; font-weight: 500; font-style: normal;
+  src: local("Spectral Medium"), local("Spectral-Medium"); }
+@font-face { font-family: "Lacande Spectral"; font-weight: 700; font-style: normal;
+  src: local("Spectral Bold"), local("Spectral-Bold"); }
+@font-face { font-family: "Lacande Mattone"; font-weight: 400; font-style: normal;
+  src: local("Mattone"), local("Mattone Regular"), local("Mattone-Regular"); }
+@font-face { font-family: "Lacande Mattone"; font-weight: 700; font-style: normal;
+  src: local("Mattone Bold"), local("Mattone-Bold"); }
+@font-face { font-family: "lacande-mark"; font-weight: 400; font-style: normal;
+  src: local("lacande-mark"); unicode-range: U+E000-E001; }
+
+/* ---- Base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: var(--font-size); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--size-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, p, ol, ul, dl, dd, figure, blockquote, table { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--color-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: var(--rule); }
+a:focus-visible { outline: var(--rule) solid var(--color-accent); outline-offset: 2px; }
+
+.label {
+  font-family: var(--font-text);
+  font-size: var(--size-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.caption {
+  font-size: var(--size-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-caption);
+}
+.muted { color: var(--color-ink-muted); }
+.accent { color: var(--color-accent); }
+.mark { font-family: "lacande-mark"; font-weight: 400; font-synthesis: none; }
+
+/* ---- The band: wordmark and where you are, a line edge to edge ---- */
+.band {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: var(--band-pad) var(--pad);
+  border-bottom: var(--rule) solid var(--color-ink);
+  font-size: var(--size-nav);
+  line-height: var(--lh-nav);
+  letter-spacing: var(--ls-nav);
+}
+.band .wordmark { color: var(--color-ink); text-decoration: none; font-size: calc(var(--size-nav) * 1.5); line-height: 1; letter-spacing: 0; }
+.band .crumb { flex: 1; min-width: 0; color: var(--color-ink); }
+.band .crumb span + span::before { content: " / "; color: var(--color-ink-muted); }
+.band .crumb [aria-current] { color: var(--color-accent); }
+.band .date { white-space: nowrap; color: var(--color-ink-muted); }
+
+/* ---- One column, left-aligned, at the reading width ---- */
+main {
+  max-width: calc(var(--measure) + 2 * var(--pad));
+  margin: 0 auto;
+  padding: var(--gap-part) var(--pad) var(--space);
+}
+
+/* ---- Header ---- */
+.doc-head { display: grid; gap: 1rem; }
+.doc-head h1 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: var(--size-title);
+  line-height: var(--lh-title);
+}
+.standfirst { font-size: var(--size-lead); line-height: var(--lh-lead); }
+
+/* ---- Parts: a line where one part ends and the next begins; space inside ---- */
+.part { margin-top: var(--gap-part); padding-top: var(--gap-part); border-top: var(--rule) solid var(--color-ink); }
+.part > * + * { margin-top: 1.2rem; }
+.part h2 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: var(--size-section);
+  line-height: 1.3;
+}
+.part h2.label { font-family: var(--font-text); font-size: var(--size-label); line-height: var(--lh-label); }
+.part h3 { margin-top: 2rem; }
+
+/* ---- Lists: space between items, no bullets drawn as decoration ---- */
+.list { padding-left: 1.4em; }
+.list > li + li { margin-top: 0.6rem; }
+.list > li::marker { color: var(--color-ink-muted); }
+
+/* ---- Needs Leon: first, short, numbered ---- */
+.needs ol { padding-left: 1.4em; }
+.needs li + li { margin-top: 0.6rem; }
+.needs li::marker { color: var(--color-accent); }
+
+/* ---- Rows of facts: here a line helps the eye ---- */
+.table-wrap { overflow-x: auto; }
+.facts { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums lining-nums; }
+.facts th, .facts td { text-align: left; vertical-align: top; padding: 0.55rem 1rem 0.55rem 0; border-bottom: var(--rule) solid var(--color-ink); }
+.facts th:last-child, .facts td:last-child { padding-right: 0; }
+.facts thead th { padding-top: 0; }
+.facts tbody tr:last-child td { border-bottom: 0; }  /* lines go between rows; the next part brings its own */
+.facts .num { text-align: right; white-space: nowrap; }
+
+/* ---- States as words ---- */
+.states { list-style: none; padding: 0; }
+.states li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: 0.55rem 0; }
+.states li + li { border-top: var(--rule) solid var(--color-ink); }
+
+/* ---- Key numbers ---- */
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.5rem 2rem; }
+.figures > div { display: flex; flex-direction: column-reverse; }  /* the number above its label */
+.figures dd { font-family: var(--font-title); font-size: var(--size-title); line-height: 1; font-variant-numeric: lining-nums; }
+.figures dt { margin-top: 0.4rem; }
+
+/* ---- Quote ---- */
+.quote p { font-size: var(--size-quote); line-height: var(--lh-quote); }
+.quote footer { margin-top: 0.5rem; }
+
+/* ---- Picture: portrait 4:5, whole, words beside it, never on it ---- */
+.picture { max-width: 30rem; }
+.picture .frame { aspect-ratio: 4 / 5; width: 100%; object-fit: cover; background: #F1F4F5; }  /* the grey only shows while there is no picture */
+.picture figcaption { margin-top: 0.6rem; }
+
+/* ---- Footer: a line edge to edge, the lockup and the credit ---- */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  padding: 1.2rem var(--pad) 1.6rem;
+  border-top: var(--rule) solid var(--color-ink);
+  font-size: var(--size-footer);
+  line-height: var(--lh-footer);
+  letter-spacing: var(--ls-footer);
+}
+.foot .lockup { font-size: calc(var(--size-footer) * 1.3); letter-spacing: 0; }
+
+@media (max-width: 768px) {
+  .band { flex-wrap: wrap; }
+  .band .date { flex-basis: 100%; }
+  .states li { grid-template-columns: 1fr; gap: 0.2rem; }
+  /* phones: the picture runs edge to edge */
+  .picture { max-width: none; margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); }
+  .picture figcaption { padding: 0 var(--pad); }
+}
+
+/* ---- Print: about 1pt lines, A4 ---- */
+@page { size: A4; margin: 16mm 15mm; }
+@media print {
+  :root { --rule: 1pt; }
+  .band, .foot { padding-left: 0; padding-right: 0; }
+  main { max-width: none; padding: 1.5rem 0 0; }
+  a { color: var(--color-ink); }
+  .part, .facts tr, .states li, .picture, .figures > div { break-inside: avoid; }
+  .part h2 { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="band">
+  <a class="wordmark" href="#">lacande</a>
+  <nav class="crumb" aria-label="Where you are">
+    <span>Hermes</span><span>[Reports]</span><span aria-current="page">[Short title]</span>
+  </nav>
+  <span class="date">[20 October 2026]</span>
+</header>
+
+<main>
+
+  <!-- HEADER: kicker, title, standfirst, the facts of the document -->
+  <header class="doc-head">
+    <p class="label">[Report · Project name]</p>
+    <h1>[Title of the document]</h1>
+    <p class="standfirst">[One or two sentences: what this document says, and what it asks of the reader.]</p>
+    <p class="caption muted">[20 October 2026] · [Written by Hermes] · [N° 1]</p>
+  </header>
+
+  <!-- NEEDS LEON: only when something needs him. One line each, with what he has to do. -->
+  <section class="part needs" aria-labelledby="needs-title">
+    <h2 id="needs-title" class="label accent">Needs Leon</h2>
+    <ol>
+      <li>[Decide X: option A or option B. One sentence on what changes.]</li>
+      <li>[Approve Y, or say what to change.]</li>
+    </ol>
+  </section>
+
+  <!-- A PART: a title, then short paragraphs, one idea each -->
+  <section class="part">
+    <h2>[Section title]</h2>
+    <p>[A paragraph of 40 to 60 words carrying one idea. Facts rather than adjectives: numbers, names, places, sources. A <a href="#">link</a> is in the accent.]</p>
+    <p>[A second paragraph, if it carries a second idea.]</p>
+    <ul class="list">
+      <li>[Several things are shown as several things.]</li>
+      <li>[One per line.]</li>
+      <li>[Space between them is enough.]</li>
+    </ul>
+  </section>
+
+  <!-- ROWS OF FACTS: a line between rows -->
+  <section class="part">
+    <h2>[Facts]</h2>
+    <div class="table-wrap">
+      <table class="facts">
+        <thead>
+          <tr><th class="label" scope="col">Number</th><th class="label" scope="col">Name</th><th class="label" scope="col">Its typeface</th><th class="label num" scope="col">Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LC-001</td><td>Jazz Impressions</td><td>Bauhaus 93</td><td class="num">85€</td></tr>
+          <tr><td>LC-002</td><td>Sonata in Venetian Rose</td><td>Basteleur</td><td class="num">85€</td></tr>
+          <tr><td>LC-003</td><td>Isola Paradiso</td><td>Struggle</td><td class="num">85€</td></tr>
+          <tr><td>LC-004</td><td>Nuit d'Amour</td><td>Federo</td><td class="num">85€</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption muted">[A caption says where the facts come from: source, date.]</p>
+  </section>
+
+  <!-- STATES: a state is a word, not a colour. "Needs Leon" is the one in the accent. -->
+  <section class="part">
+    <h2>[Where things stand]</h2>
+    <ul class="states">
+      <li><span class="label">Done</span><span>[What was finished, in one sentence.]</span></li>
+      <li><span class="label">Open</span><span>[What is still running, and what it waits for.]</span></li>
+      <li><span class="label accent">Needs Leon</span><span>[What only Leon can decide.]</span></li>
+    </ul>
+  </section>
+
+  <!-- KEY NUMBERS: at most four; one may be in the accent -->
+  <section class="part">
+    <h2>[In numbers]</h2>
+    <dl class="figures">
+      <div><dt class="label">[Candles]</dt><dd>4</dd></div>
+      <div><dt class="label">[Weight]</dt><dd>250 g</dd></div>
+      <div><dt class="label">[Open decisions]</dt><dd class="accent">[31]</dd></div>
+    </dl>
+  </section>
+
+  <!-- QUOTE AND PICTURE: words beside the picture, never on it -->
+  <section class="part">
+    <h2>[A quote, a picture]</h2>
+    <blockquote class="quote">
+      <p>[A sentence worth quoting, in the speaker's own words.]</p>
+      <footer class="caption muted">[Name, source, date]</footer>
+    </blockquote>
+    <figure class="picture">
+      <div class="frame" role="img" aria-label="[What the picture shows]"></div>
+      <!-- With a real picture: <img class="frame" src="[file]" alt="[What the picture shows]" width="1080" height="1350"> -->
+      <figcaption class="caption muted">[What it shows, who made it, its licence.]</figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span class="lockup">lacande records</span>
+  <span class="muted">[Written by Hermes] · [outputs/2026/2026-10-20-short-title.html]</span>
+</footer>
+
+</body>
+</html>

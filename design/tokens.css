@@ -1,0 +1,139 @@
+/* Lacande design tokens
+   Status: DRAFT v1, waiting for Leon's decisions.
+   The decided values of LACANDE-DESIGN.md as CSS custom properties.
+   Updated: 2026-10-20
+
+   - Names follow the website's assets/css/base.css wherever a name already exists there
+     (--color-ink, --select-red, --rule, --pad, --space, --space-media ...), so the two
+     can later point at each other.
+   - Only values that are used or decided. "pending #n" = row n of DECISIONS-NEEDED.md;
+     until Leon decides, the value is the one in the website's GUIDELINES.md.
+   - Phones are screens up to 768px wide (the media query at the end).
+   - The website also scales its desktop sizes with the window (x1 at 1280px to x1.33 at
+     1920px, DESIGN-DOCTRINE §10). Documents don't need it, so it is not here.
+   - Print values (bleed, safe areas, Pantone inks) live in LACANDE-DESIGN.md §7, not in CSS. */
+
+:root {
+  /* ---- Colour: the house --------------------------------------------- */
+  --color-ink: #111;            /* near-black text, lines, marks (pending #2) */
+  --color-paper: #fff;          /* the house paper (pending #13) */
+  --color-ink-muted: #6B6B6B;   /* secondary text: 5.3:1 on white, never under 4.5:1 (pending #17) */
+  --select-red: #C50141;        /* the one red of the house (Leon, 2026-10-16) */
+  --color-accent: var(--select-red);
+  --riso-red: #C43C2C;          /* the menu's spinning record only, never the mark */
+  --riso-red-d: #9F2E22;        /* its groove shadow */
+
+  /* ---- Colour: the worlds (ground + accent; text is --color-ink) ------ */
+  --world-house-ground: #FFFFFF;
+  --world-house-accent: #C50141;
+  --world-lacande-ground: #ECEAF3;    /* the Lacande wing */
+  --world-lacande-accent: #C50141;
+  --world-candles-ground: #FFF3EF;    /* the Candles catalogue */
+  --world-candles-accent: #C50141;
+  --world-journal-ground: #F1F4F5;
+  --world-journal-accent: #C50141;
+  --world-music-ground: #E0E2E5;      /* Quicksilver */
+  --world-music-accent: #1F45C2;      /* Ultramarine */
+  --world-matchboxes-ground: #F7F5F0; /* the Matchbox Archive, live in the Panel (pending #16) */
+  --world-matchboxes-accent: #C50141;
+
+  /* ---- Colour: the candles, site pair (tone on tone) ------------------ */
+  --lc001-ground: #A9CBE0;  --lc001-ink: #14213D;  /* Jazz Impressions, 9.4:1 */
+  --lc002-ground: #F9E6E1;  --lc002-ink: #9F0920;  /* Sonata in Venetian Rose, 6.9:1 */
+  --lc003-ground: #D8EDF4;  --lc003-ink: #F54317;  /* Isola Paradiso, 3.0:1 (pending #8: #C23512, 4.6:1) */
+  --lc004-ground: #4D1A28;  --lc004-ink: #EBADCB;  /* Nuit d'Amour, 7.6:1 */
+
+  /* ---- Colour: the candles, riso pair (pictures on posts and covers, on --paper-cream) */
+  --lc001-riso-light: #2D87BE;  --lc001-riso-key: #24244A;
+  --lc002-riso-light: #F7B7BD;  --lc002-riso-key: #A80A24;
+  --lc003-riso-light: #A8E2FF;  --lc003-riso-key: #CD3A14;
+  --lc004-riso-light: #F9BCE7;  --lc004-riso-key: #511C2E;
+
+  /* ---- Colour: the music family -------------------------------------- */
+  --music-grey: #E0E2E5;
+  --ultramarine: #1F45C2;
+  --label-white: #F7F5F0;       /* boxes on music boards */
+  --charcoal: #262628;          /* Disque's dark setting, with --label-white text */
+
+  /* ---- Colour: papers ------------------------------------------------- */
+  --paper-cream: #FFF9ED;       /* playlist boards and riso pictures */
+  --paper-gesso: #F1EBE0;       /* riso papers */
+  --paper-neve: #F8F5F0;
+  --paper-crema: #EDE5D3;
+
+  /* ---- Colour: Matchbox Archive card states --------------------------- */
+  --mb-ground-forthcoming: #F9E6E1;
+  --mb-ground-out-of-print: #E4E2DE;
+  --mb-green: #1E7B34;          /* "In stock": 4.9:1 on its ground */
+
+  /* ---- Type: faces ---------------------------------------------------- */
+  --font-title: "Spectral", Georgia, "Times New Roman", serif;
+  --font-text: "Mattone", Arial, Helvetica, sans-serif;
+  --font-mark: "lacande-mark";  /* U+E000 wordmark, U+E001 lockup; weight 400, font-synthesis: none */
+  --font-lc001: "Bauhaus 93", var(--font-title);
+  --font-lc002: "Basteleur", var(--font-title);   /* pending #6 (the Panel has Cormorant Garamond) */
+  --font-lc003: "Struggle", var(--font-title);
+  --font-lc004: "Federo", var(--font-title);
+
+  /* ---- Type: weights -------------------------------------------------- */
+  --weight-title: 400;          /* Spectral Regular */
+  --weight-text: 400;           /* Mattone Regular */
+  --weight-long-head: 700;      /* Spectral Bold: section titles in long reads */
+  --weight-long-text: 500;      /* Spectral Medium: text in long reads */
+
+  /* ---- Type: sizes, desktop (phones below) ---------------------------- */
+  --font-size: 18px;            /* the root size: 1rem */
+
+  --size-title: 42px;     --lh-title: 1.15;     --ls-title: 0;
+  --size-subtitle: 18px;  --lh-subtitle: 1.35;  --ls-subtitle: 0;
+  --size-lead: 22px;      --lh-lead: 1.4;       --ls-lead: 0;
+  --size-body: 18px;      --lh-body: 1.55;      --ls-body: 0;
+  --size-quote: 22px;     --lh-quote: 1.4;      --ls-quote: 0;
+  --size-label: 14px;     --lh-label: 1.4;      --ls-label: 0.02em;   /* in capitals (pending #12) */
+  --size-caption: 14px;   --lh-caption: 1.4;    --ls-caption: 0.02em;
+  --size-nav: 16px;       --lh-nav: 1.2;        --ls-nav: 0.05em;
+  --size-footer: 14px;    --lh-footer: 1.3;     --ls-footer: 0.02em;
+
+  /* Long reads: journal articles and the Lacande pages */
+  --size-long-title: 46px;        /* Mattone */
+  --size-long-standfirst: 22px;   /* Mattone */
+  --size-long-head: 34px;         /* Spectral Bold */
+  --size-long-body: 18px;         /* Spectral Medium (pending #9: live is 20px) */
+  --measure: 42em;                /* about 73 characters a line (pending #10) */
+
+  /* ---- Space and lines ------------------------------------------------ */
+  --rule: 2px;                  /* every drawn line on screen */
+  --rule-print: 1pt;            /* every drawn line in print */
+  --pad: 1rem;                  /* text margin, left and right */
+  --space: 6rem;                /* between blocks */
+  --space-media: 2.5rem;        /* between a picture and the text beside it */
+  --band-pad: 23px;             /* above and below the breadcrumb in the band */
+  --split-m: 1.5rem;            /* margin around the photo in a split article */
+  --tap-min: 24px;              /* smallest tap target */
+  --tap: 44px;                  /* buying and navigation controls */
+
+  /* ---- Motion --------------------------------------------------------- */
+  --flood: 200ms;               /* colour arriving on hover or entry */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size: 15px;
+
+    --size-title: 29px;         /* pending #11 */
+    --size-subtitle: 16px;      /* pending #11 */
+    --size-lead: 18px;
+    --size-body: 15px;
+    --size-quote: 18px;
+    --size-label: 13px;
+    --size-caption: 13px;
+    /* navigation and footer keep their desktop sizes */
+
+    --size-long-title: 32px;
+    --size-long-standfirst: 18px;
+    --size-long-head: 28px;
+    --size-long-body: 16px;     /* pending #9: live is 17px */
+
+    --pad: 12px;
+  }
+}
