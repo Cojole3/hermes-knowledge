@@ -20,7 +20,7 @@ Updated: 2026-10-20
   - "ask first" rules are in the standing instructions.
 
 ## Status
-**Being set up.**
+**Being set up.** Day 1 (20 Oct) done: server hardened, monitoring and phone alerts, knowledge base syncing. Decided: Hermes never gets GitHub write access (code changes go via Claude Code PRs); own interface later. Next: 11c repo access + nightly review (running), 11d Claude Code routine, website deploy method, push local-only projects to GitHub.
 
 **Next:**
 - standing instructions and this knowledge base;

@@ -19,7 +19,7 @@ Updated: 2026-10-20
 - **Local work is far ahead:** session 129 on 20 Oct 2026.
 - **Launch gate**, everything that must happen before launch:
   - deploy the current build;
-  - update Kirby on the server;
+  - ~~update Kirby on the server~~ (done 2026-10-20, Kirby 5.6.1);
   - write real candle copy and prices;
   - connect the newsletter;
   - point analytics at a public ERP address;
@@ -27,7 +27,7 @@ Updated: 2026-10-20
   - remove noindex.
 
 ## Security note
-The server still runs **Kirby 5.4.4, which has known vulnerabilities**, including a high-severity path-traversal bug. The local code is on 5.5.2. **Deploying the current build fixes this.** The same server hosts Hermes, so this matters for both.
+**Fixed 2026-10-20:** Kirby on the live server went from 5.5.2 to **5.6.1** (security release; repo and server verified identical). The live site is still an old design build, but the CMS is patched. Also new: `tools/snapshot` (offline copy of the site as a zip) and an updated server doc (`docs/lacande-infrastructure-v4.md`) covering the hardened server.
 
 ## How it's built and deployed
 - **Stack:** Kirby CMS (flat files, PHP, no database).
