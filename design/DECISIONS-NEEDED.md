@@ -1,45 +1,92 @@
-# Lacande design: decisions needed
+# Lacande design: decisions
 
-The contradictions and gaps found while writing the central design document, with a recommendation for each. Leon decides; then `LACANDE-DESIGN.md` becomes v1.
-Updated: 2026-10-20
+The questions found while writing the central design document, and Leon's answers.
+**Decided: 25 of 31** (Leon, 2026-10-21). **Open: 6**, to be seen visually before a decision.
+Updated: 2026-10-21
 
 ## How to use this page
-- **One row per question.** Option A and option B say where each one comes from. The source codes (G, DD, PL…) are listed at the end of [LACANDE-DESIGN.md](LACANDE-DESIGN.md#sources).
-- **Until you decide,** `LACANDE-DESIGN.md` follows the website's `GUIDELINES.md` and marks the point "(pending decision #n)".
-- **To decide,** tell Hermes or a Claude Code session the number and your answer: "#7 B", "#12 as recommended", or "all as recommended except #3 and #9".
-- **Rows 1 to 5 matter most.** They touch the most surfaces, or they block work.
+- **Open questions come first.** Leon decides them by looking at the options, not by reading them.
+- **To decide,** tell Hermes or a Claude Code session the number and your answer: "#10 B", "#12 as recommended", or "all as recommended except #3 and #9".
+- **Until a question is decided,** [LACANDE-DESIGN.md](LACANDE-DESIGN.md) follows the website's `GUIDELINES.md` and marks the point "(pending decision #n)".
 - Contrast figures are computed with the standard WCAG formula. The rule is 4.5:1 for text and 3:1 for large titles (G III).
 
-| # | Topic | Option A (source) | Option B (source) | Recommendation |
-|---|---|---|---|---|
-| 1 | **The NFC pages a customer sees after tapping the label** | The house look: titles in Spectral, text in Mattone, the candle's own two colours, 2px lines, square corners, no shadows, no words on pictures (G II–V). | The app's platform default: the phone's own font, boxes with outlines and a "lifted-paper" offset shadow, a black-and-white photo filter, a page photo under the text with a veil, titles in black capitals (NFC Part 2.1–2.5). Lacande has no font uploaded yet (A7 §6). | **A** for Lacande's brand preset and for each candle's preset: upload Spectral, Mattone and the candle's face to Brand › Typography, set each candle's ground and ink, shadow off. Keep B as the default for other organisations. Keep the streaming services' own colours (decided 2026-06-12). |
-| 2 | **One near-black for every screen** | `#111` (G III; website CSS `--color-ink`; PL §1 `#111111`). | `#1A1A1A` (NFC, LacandERP, Render tool, Serigrafia; also the riso "black" ink, CS colours.md) or `#141414` (AT inks.json and brand.json). | **A**, `#111`, internal tools included. `#1A1A1A` stays only as the name of the riso black ink. The printed black is a Pantone still to choose (#5). |
-| 3 | **Social post formats** | Portrait 4:5 (1080 × 1350) plus 9:16 stories (CS rules.md; AT `ig_portrait_1080x1350`; G V "portrait 4:5"). | Square first (1080 × 1080), like a record sleeve; 4:5 and 9:16 are made from the square (PL §6, D019, 15 October). | **B for playlist boards** (newer, and the sleeve suits music), **A for every other post** (candles, Journal, house). Then update CS rules.md to say so. |
-| 4 | **Typefaces beyond Spectral, Mattone and the product's own face** | Two house typefaces and one per product, nothing else (G II). | On boards and cards: Cormorant Garamond Medium Italic for subtitles, questions and song titles; Spectral for paragraphs; Jost for scent-card names; five vintage sans as heading trials (PL §2; CS type.md). | Allow them as **named exceptions, for music boards and scent cards only**, never on the website, the NFC pages or documents. A board's paragraph follows the long-read rule (Spectral). Write the exceptions into G II. A heading trial stays a trial until one is kept. |
-| 5 | **Print: inks, board and type for matchboxes and posters** | The Atelier's placeholders: "Bauhaus" primaries red `#C8102E`, blue `#1F4E9C`, yellow `#F2B705` on board `#F2EFE9`, black `#141414`, and a built-in stroke font until real fonts arrive (AT inks.json, brand.json; ROADMAP O1, O2, O4, O5). | The house rules: one accent per world, the triad kind for matchboxes, Spectral, Mattone and the édition's own face (G II, III). | **B.** Choose the board first (uncoated: kraft or white, and its weight). Then one Pantone black and one or two Pantone colours per édition, from the uncoated (U) book, in daylight, checked with a drawdown. Put Spectral, Mattone and the édition faces into the Atelier's `fonts.json`. The positioning rules out Bauhaus as a reference (POS §5), so "Bauhaus" stays an internal grammar name. |
-| 6 | **LC-002 Sonata in Venetian Rose: its typeface** | Basteleur (G II; website CLAUDE.md; PL §2; CS colours.md). | Cormorant Garamond, the value set in the Panel today (PNL `candles/2_sonata-in-venetian-rose/candle.en.txt`, Titlefont). | **A.** Set the Panel field back to "Basteleur - Sonata". It looks like a trial left in place after Cormorant was reinstalled. |
-| 7 | **Hover colour on candle pages** | The house red, Select red `#C50141` (today; G IX). On Jazz sky blue it reads 3.6:1 and "almost disappears". | Each candle's own ink (G IX, "one accent per world"). | **B.** |
-| 8 | **LC-003 Isola Paradiso: its ink** | Keep orange `#F54317` on `#D8EDF4`: 3.0:1, under the 4.5:1 rule (G III, IX). | A deeper orange `#C23512`: 4.6:1 (G IX). | **B** for text and lines. |
-| 9 | **Long reads: size of the text** | Spectral Medium 18px, phones 16 (G II). | 20px, phones 17: the live setting (PNL Journalbodysize) and the website's CLAUDE.md (Session 113.8). | **B** (newer and live). Update G II. |
-| 10 | **Reading width (the measure)** | 40em on reading pages (DD §4). | 37em (website CLAUDE.md; DD §4 calls it an open decision). G II and DD §11 say about 73 characters a line (42em in the split article). | Write it as **about 73 characters a line** for every long read; the em value follows from the text size. Remove 37em. |
-| 11 | **Phone sizes for titles and subtitles** | Titles 29px, subtitles 16 (G II; PNL). | Titles 32px, subtitles 18 (DD §4). | **A** (live). Update DD §4. |
-| 12 | **Labels and kickers: capitals and letter-spacing** | Labels 14px in capitals (G II). The Panel's caption style is 14px, 0.02em, no capitals (PNL). | Kickers in Mattone capitals at 0.08em (PL §2; CS rules.md). The internal tools use heavy capitals at 0.2–0.3em (NFC 1.3). | **One rule for public surfaces:** labels and kickers in Mattone capitals, 0.08em, 14px (phones 13). Captions that are sentences stay in sentence case at 0.02em. Internal tools keep theirs (#18). |
-| 13 | **House paper: white or cream** | White `#FFFFFF` for house pages (G III; website CSS `--color-paper`; COM "#111 on white"). | Cream everywhere, "read as stock, not screen" (WDS §2, written before G). Cream `#FFF9ED` on playlist boards (PL §1; CS colours.md). Other near-whites in use: label white `#F7F5F0`, NFC paper `#F9F8F6`, Atelier board `#F2EFE9`, riso papers gesso, neve, crema. | **White** for screens and documents (live and newer). **Cream `#FFF9ED`** as the paper of boards and riso pictures. **Label white `#F7F5F0`** for labels and the Matchbox Archive. Riso papers by their names. Mark WDS §2–4 as replaced by G III. |
-| 14 | **One candle, two sets of colours** | "Online: the same pairs. A post about a product wears that product's colours" (G III). | Posts and covers use separate print inks per candle, e.g. LC-001 light `#2D87BE` and key `#24244A`, against the site's `#A9CBE0` and `#14213D` (CS colours.md: "not the same values"). | **Keep both, as two kinds:** the site pair is the candle's tone-on-tone world; the riso pair is its riso colours for pictures. Both are listed side by side in LACANDE-DESIGN §4. Add one sentence to G III. |
-| 15 | **Line weight on boards** | One weight: 2px on screen, about 1pt in print (G IV). | 4px on 1080px boards, 2px between the rows of a list (PL §4; CS rules.md). | **Keep B**, and write the rule as "2px as the reader sees it": a 1080px board is shown much smaller on a phone, so 4px there reads like the site's 2px. |
-| 16 | **Matchbox Archive: its world** | Gap: the Matchbox Archive is not in G III's table of worlds. | Live: ground `#F7F5F0` with the site's default accent, Select red (PNL Matchboxesground; DD §8). The cards' states in the CSS: forthcoming `#F9E6E1`, out of print `#E4E2DE`, "in stock" green `#1E7B34`. | **Add it to G III** as a "ground, text and accent" world: `#F7F5F0` with Select red (5.6:1). |
-| 17 | **Grey for secondary text** | `#6B6B6B`: 5.3:1 on white; muted text never under 4.5:1 (DD §4; NFC Part 3.4 on phones). | `#A1A1A1`: 2.6:1 on white (NFC, LacandERP, Render tool, Serigrafia, Part 1.2). | **A everywhere**, internal tools included. |
-| 18 | **Internal tools look different on purpose** | Keep their own look: system font, heavy capitals, amber = selected, green = on, red = off or danger, blue = issued, the hard offset shadow on dialogs (NFC Part 0–1; ERP Part 1b). | Bring them to the house look (Spectral, Mattone, one accent, no shadows). | **A**, written down as an intentional difference: staff tools need density and clear states. They share with the house: `#111`, the grey of #17, square corners, 2px lines, and "clear first". |
-| 19 | **Render tool and Serigrafia have no design doc of their own** | Gap: both `docs/DESIGN_SYSTEM.md` files are word-for-word copies of the NFC app's June 2026 doc (its admin console and the old choice page). | Serigrafia's real rules (halftone plates in the candle's ink, a coarser dot for screens, exported at 1x and 2x, on the paper colour, never in white boxes) are in WDS §5. | **Replace both**, through pull requests, with a short pointer to LACANDE-DESIGN (internal tools), plus the plate rules for Serigrafia. |
-| 20 | **Motion on the NFC pages** | A closed list: rotation, drift, flood (about 200 ms), cross-fade, and the moving crop. No scroll-snap, no full-screen (100dvh) panels (DD §9; WDS §6). | The "Nudge" (a pulse, wobble or peek after 3–30 s), flip cards, slideshows that move on by themselves, one-screen pages at 100dvh (NFC 2.3, 2.11). | **For Lacande's presets:** no pulse, no wobble; a peek at most. Flip cards and slideshows are fine (a turn and a cross-fade). The one-screen page serves the tap moment and stays. |
-| 21 | **The voice for music** | Say what it is, plainly: facts, sources instead of qualities; "warm" is on the avoid list (G VII; POS §7.2). | "A radio host who knows the records. Warm, specific, names artists and songs, says when to play it" (PL §8; CS rules.md). | **Keep B as the music register, without the word "warm":** specific, names artists and songs, says when to play it, no quality adjectives. The voice of liner notes (third person, or signed with initials) is still open (WDS §9.3). |
-| 22 | **Em dashes in public copy** | Never: "a strong AI tell" (LET). | No rule elsewhere. G's own examples use "·" in lines of facts. | **A** for all public copy written with AI (posts, pages, emails, captions). Use "·" in lines of facts; otherwise a full stop or a colon. Internal documents are free. |
-| 23 | **Lettera's voice** | Gap: Lettera's `VOICE.md` is still a placeholder (LET). | What it says now: never name the brand or its objects; Scarpa, Morandi and ECM as anchors; marketing words banned (LET). | **Rewrite it** from G VII and POS §7 (the chronicle register). Keep "never name the brand". Decide whether posts may name people: POS §11.4 allows persons only in the Journal, the Bibliothèque and the credits. Recommended: people as subjects yes, as borrowed authority no. |
-| 24 | **The line printed on the label** | "Tap for music" (G VII, "On the label"). | "Light it. · Tap the label. · Listen." (HK `lacande-design-language.md`; no project source found). Posts close with "Or light LC-00x and tap its label." (CS rules.md). | **A**, unless B is on a real label; then tell Hermes where it comes from. |
-| 25 | **LC-001: one name or two** | The candle is "Jazz Impressions" (G II, III; PNL). | Its playlist is "Tournant Jazz" (PNL `music/1_candle-playlists/1_tournant-jazz`), and the candle's own page text still says "the Tournant Jazz companion soundtrack". WDS §4 and A7 still call the candle Tournant Jazz. | **One name per édition**, Jazz Impressions, as the other three candles do. Or state that a candle's playlist may keep a title of its own. |
-| 26 | **Playlist numbers: the prefix, and the six without a number** | `CP-` (the boards and the NFC app's "Curated Playlists"; PL D023; HK). | `PL-` (the website's placeholder "PL-007 goes live"; PL D023 leaves it open). Gap: the first six playlists (the four candle playlists, Sorgente Egeria, Sketches in Sepia) show no number; Calypso Blues is CP-007. | **`CP-`** (CS rules.md already rules out "PL 01"). Give the six CP-001 to CP-006 in the order they were issued. In public a candle's playlist is still named with its candle: "Jazz Impressions · LC-001". |
-| 27 | **The marks: their names and colours** | Three marks: wordmark, lockup, picto; one colour, never the accent (G VI). | The NFC app's logo set: Short, Extended, Logo + picto, Picto (NFC 2.6; RT/SER 2.6), printed "in ink, paper or accent" (RT/SER 2.6). The menu's spinning record is riso red `#C43C2C` (website CSS; VIN). | **A's three names everywhere**; map the app's four to them. Never in the accent. The menu record is a picture of a record, not the mark, and keeps its riso red. |
-| 28 | **Cart and checkout: one typeface?** | "One typeface, #111 on white" (COM §0, July 2026). | Titles in Spectral, everything else in Mattone (G II, October 2026). | **B**: COM was written before the two-typeface rule. Everything else in COM stands: written, not decorated; no boxes, badges, icons or urgency. |
-| 29 | **The picture register: plein, planche, signe** | Gap: three kinds of picture (an untreated photograph; a halftone plate in the candle's ink; a flat geometric mark), with the rule "treatment rises as the text becomes abstract" (WDS §5). G V doesn't mention them. | G V and the riso workflow (PL §7; CS pictures.md) describe pictures without these names. | **Keep the three names** as the vocabulary for pictures (they fit the riso work) and add them to G V. |
-| 30 | **Dark mode for documents and reports** | None: documents are paper, white with `#111` (G III). | The playlist tool's app and proposals switch to charcoal `#262628`, off-white `#F7F5F0`, ultramarine lifted to `#8FA6F2` (PL §1). | **A** for documents and reports; the HTML template is light only. B stays for the playlist tool's own screens. |
-| 31 | **Type for the documents Hermes and Claude Code write** | The house rule: titles in Spectral, text in Mattone (G II). | The long-read rule: big title and standfirst in Mattone, section titles in Spectral Bold, text in Spectral Medium (G II, long reads). | **A for reports, briefs, dashboards and tables** (they are scanned to find things); **B for essays** and anything read from start to finish. The template uses A. |
+---
+
+## Still open (to see visually)
+
+### #10. Reading width (the measure)
+- **Option A:** 40em on reading pages (DD §4).
+- **Option B:** 37em (website CLAUDE.md; DD §4 calls it an open decision). G II and DD §11 say about 73 characters a line.
+- **Recommendation:** about 73 characters a line for every long read. The em value follows from the text size. Remove 37em.
+- **Leon:** "It depends already on phone vs desktop, and I would need to visualise the things to take a decision."
+- **Next:** a visual comparison, on a phone and on a desktop.
+
+### #11. Phone sizes for titles and subtitles
+- **Option A:** titles 29px, subtitles 16px (G II; PNL, the live site).
+- **Option B:** titles 32px, subtitles 18px (DD §4).
+- **Recommendation:** A (live). Update DD §4.
+- **Leon:** "Is the website's design doctrine newer? But is the site using A? Again, I need to compare and understand visually."
+- **Next:** check which is newer; a visual comparison of both sizes on a phone.
+
+### #12. Labels and kickers: capitals and letter-spacing
+- **Option A:** labels 14px in capitals (G II). The Panel's caption style is 14px, 0.02em, no capitals (PNL).
+- **Option B:** kickers in Mattone capitals at 0.08em (PL §2; CS rules.md). The internal tools use heavy capitals at 0.2 to 0.3em (NFC 1.3).
+- **Recommendation:** one rule for public surfaces: labels and kickers in Mattone capitals, 0.08em, 14px (phones 13px). Captions that are sentences stay in sentence case at 0.02em. Internal tools keep theirs (#18).
+- **Leon:** "I need to really understand what the scope of this change is, what messages are meant, and then visualise."
+- **Next:** list the messages that use labels and kickers, and show them before and after.
+
+### #15. Line weight on boards
+- **Option A:** one weight: 2px on screen, about 1pt in print (G IV).
+- **Option B:** 4px on 1080px boards, 2px between the rows of a list (PL §4; CS rules.md).
+- **Recommendation:** B, written as "2px as the reader sees it": a 1080px board is shown much smaller on a phone, so 4px there reads like the site's 2px.
+- **Leon:** "I need to check visually."
+- **Next:** one board at 1080px and on a phone, with 2px and 4px lines.
+
+### #20. Motion on the NFC pages
+- **Option A:** a closed list: rotation, drift, flood (about 200 ms), cross-fade, and the moving crop. No scroll-snap, no full-screen (100dvh) panels (DD §9; WDS §6).
+- **Option B:** the "Nudge" (a pulse, wobble or peek after 3 to 30 s), flip cards, slideshows that move on by themselves, one-screen pages at 100dvh (NFC 2.3, 2.11).
+- **Recommendation:** for Lacande's presets, no pulse and no wobble; a peek at most. Flip cards and slideshows are fine (a turn and a cross-fade). The one-screen page serves the tap moment and stays.
+- **Leon:** "It depends a lot on how it will look. The NFC page uses a sort of template system: a top part that shows the design and a bottom part to choose the music provider, so not much to move. We could try and see how it looks if, instead of the square at the top, we just have the turning record (a bit like before in the playlist part of the website)."
+- **Next:** a mock-up of the NFC page with the turning record at the top.
+
+### #21. The voice for music
+- **Option A:** say what it is, plainly: facts, sources instead of qualities; "warm" is on the avoid list (G VII; POS §7.2).
+- **Option B:** "A radio host who knows the records. Warm, specific, names artists and songs, says when to play it" (PL §8; CS rules.md).
+- **Recommendation:** B, without the word "warm".
+- **Leon:** neither. "It should feel more like a curator, a sort of professor explaining something, but without being boring. It's more context dependent." He judged "Put it on after dinner, while the table is still full." bad.
+- **Direction now in the document** (§1): a curator explaining, not boring, depends on context.
+- **Next:** new example sentences, to validate with Leon.
+
+---
+
+## Decided (25)
+
+| # | Topic | Decision | Leon's note (2026-10-21) |
+|---|---|---|---|
+| 1 | NFC pages a customer sees | **A**: the house look | Any change to the NFC page is first proposed visually and validated by Leon. It should carry the Lacande look. |
+| 2 | One near-black | **A**: `#111` everywhere | Internal tools included. `#1A1A1A` stays only as the name of the riso black ink. |
+| 3 | Social post shapes | **Changed from the recommendation**: 4:5 is the default for all Instagram posts, playlist boards included; square as an option | "The standard insta post is 4/5, so focus firstly on this, with the option for square." |
+| 4 | Typefaces beyond Spectral and Mattone | **Recommendation**: named exceptions | Spectral and Mattone by default. Exceptions allowed, for example playlists, and the scent cards with their own design. |
+| 5 | Print: inks, board and type | **Recommendation** (B: house rules, three steps) | More freedom for typefaces in print. The guidelines are a fallback; what matters is that it looks homogeneous. Few inks and riso are a Lacande trademark. |
+| 6 | LC-002 typeface | **B**: Cormorant Garamond (the Panel's value stays) | Follow-up: the website's `GUIDELINES.md` and `CLAUDE.md` still say Basteleur. |
+| 7 | Hover colour on candle pages | **Recommendation** (B: each candle's own ink) | none |
+| 8 | LC-003 Isola Paradiso ink | **A**: keep `#F54317` (3.0:1) | Leon's choice. Noted in one line: below 4.5:1, so it suits titles and lines better than long text. |
+| 9 | Long-read text size | **Recommendation** (B: 20px, phones 17px) | none (live setting; the website's CLAUDE.md agrees) |
+| 13 | House paper | **Recommendation**: white for screens and documents; cream `#FFF9ED` for boards and riso pictures; label white `#F7F5F0` for labels and the Matchbox Archive | none |
+| 14 | Two colour pairs per candle | **Recommendation**: keep both, as two kinds | "The website colours and candle label colours optimise for different things and thus are different." |
+| 16 | Matchbox Archive colours | **Recommendation**: added to G III, `#F7F5F0` with Select red | none |
+| 17 | Grey for secondary text | **A**: `#6B6B6B` everywhere | none |
+| 18 | Internal tools look | **A**: keep their own practical look | Before any change to harmonise their design, Leon must see and approve it. "The main aim of tools is always clarity and ease of use, and then only to be coherent with our design." |
+| 19 | Render tool and Serigrafia docs | **Recommendation**: replace with a pointer and Serigrafia's plate rules, through pull requests | A later step, not now. |
+| 22 | Em dashes | **A**: never, in public texts and internal documents | none |
+| 23 | Lettera's voice | **Recommendation**, low priority | Lettera is on hold. |
+| 24 | Label line | **A**: "Tap for music" | Not design-guideline material. Kept out of the document, except one line. |
+| 25 | LC-001 name | **A**: Jazz Impressions, one name everywhere | Tournant Jazz was the old name. The name is the main identifier; the catalogue number is secondary, only for cataloguing, and not emphasised. |
+| 26 | Playlist numbers | **A**: `CP-`, with the nuance below | A playlist with a candle is that candle's édition and carries its LC number. Never a CP and an LC number for the same thing. A playlist without perfume that later gets one is promoted to LC, and its CP number is retired. So the four candle playlists carry LC numbers. Other early playlists: CP in issue order, excluding the candle playlists. |
+| 27 | Logos | **B**: the NFC app's four names: Short, Extended, Logo + picto, Picto | Colours are not strict: ink, paper or accent, depending on the situation. Which logo is used depends on the situation. The old names map as wordmark = Short, lockup = Extended, picto = Picto (to confirm). |
+| 28 | Cart and checkout typeface | **A**: one typeface | The July brief names no face, so it is written as "one typeface (Mattone) (to confirm)". |
+| 29 | Three kinds of picture (plein, planche, signe) | **Removed** from the document | "Remove this, I can't wrap my head around it; I will add it back if needed." |
+| 30 | Dark mode for documents | **A**: documents light only | B stays for the playlist tool's own screens. |
+| 31 | Type in documents | **A** for reports, briefs, dashboards and tables; **B** for essays | Plus: Spectral Medium (500) for document titles, with SemiBold (600) as the alternative to compare. Applied in `tokens.css` and the template. |
+
+Each decided row's full options (A and B with their sources) are in the git history of this file, before the commit of 2026-10-21.

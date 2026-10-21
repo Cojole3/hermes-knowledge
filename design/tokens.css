@@ -1,13 +1,13 @@
 /* Lacande design tokens
-   Status: DRAFT v1, waiting for Leon's decisions.
+   Status: DRAFT v1 · 25 of 31 decisions made (Leon, 2026-10-21) · 6 open: #10, #11, #12, #15, #20, #21
    The decided values of LACANDE-DESIGN.md as CSS custom properties.
-   Updated: 2026-10-20
+   Updated: 2026-10-21
 
    - Names follow the website's assets/css/base.css wherever a name already exists there
      (--color-ink, --select-red, --rule, --pad, --space, --space-media ...), so the two
      can later point at each other.
-   - Only values that are used or decided. "pending #n" = row n of DECISIONS-NEEDED.md;
-     until Leon decides, the value is the one in the website's GUIDELINES.md.
+   - Only values that are used or decided. "pending #n" = an open row of DECISIONS-NEEDED.md
+     (#10, #11, #12, #15, #20, #21); every other "decision #n" is final.
    - Phones are screens up to 768px wide (the media query at the end).
    - The website also scales its desktop sizes with the window (x1 at 1280px to x1.33 at
      1920px, DESIGN-DOCTRINE §10). Documents don't need it, so it is not here.
@@ -15,9 +15,9 @@
 
 :root {
   /* ---- Colour: the house --------------------------------------------- */
-  --color-ink: #111;            /* near-black text, lines, marks (pending #2) */
-  --color-paper: #fff;          /* the house paper (pending #13) */
-  --color-ink-muted: #6B6B6B;   /* secondary text: 5.3:1 on white, never under 4.5:1 (pending #17) */
+  --color-ink: #111;            /* near-black text, lines, marks (decision #2) */
+  --color-paper: #fff;          /* the house paper (decision #13) */
+  --color-ink-muted: #6B6B6B;   /* secondary text: 5.3:1 on white, never under 4.5:1 (decision #17) */
   --select-red: #C50141;        /* the one red of the house (Leon, 2026-10-16) */
   --color-accent: var(--select-red);
   --riso-red: #C43C2C;          /* the menu's spinning record only, never the mark */
@@ -34,13 +34,14 @@
   --world-journal-accent: #C50141;
   --world-music-ground: #E0E2E5;      /* Quicksilver */
   --world-music-accent: #1F45C2;      /* Ultramarine */
-  --world-matchboxes-ground: #F7F5F0; /* the Matchbox Archive, live in the Panel (pending #16) */
+  --world-matchboxes-ground: #F7F5F0; /* the Matchbox Archive (decision #16) */
   --world-matchboxes-accent: #C50141;
 
   /* ---- Colour: the candles, site pair (tone on tone) ------------------ */
+  /* Hover on a candle page uses that candle's own ink (decision #7). */
   --lc001-ground: #A9CBE0;  --lc001-ink: #14213D;  /* Jazz Impressions, 9.4:1 */
   --lc002-ground: #F9E6E1;  --lc002-ink: #9F0920;  /* Sonata in Venetian Rose, 6.9:1 */
-  --lc003-ground: #D8EDF4;  --lc003-ink: #F54317;  /* Isola Paradiso, 3.0:1 (pending #8: #C23512, 4.6:1) */
+  --lc003-ground: #D8EDF4;  --lc003-ink: #F54317;  /* Isola Paradiso, 3.0:1: kept (decision #8); for titles and lines, not long text */
   --lc004-ground: #4D1A28;  --lc004-ink: #EBADCB;  /* Nuit d'Amour, 7.6:1 */
 
   /* ---- Colour: the candles, riso pair (pictures on posts and covers, on --paper-cream) */
@@ -71,7 +72,7 @@
   --font-text: "Mattone", Arial, Helvetica, sans-serif;
   --font-mark: "lacande-mark";  /* U+E000 wordmark, U+E001 lockup; weight 400, font-synthesis: none */
   --font-lc001: "Bauhaus 93", var(--font-title);
-  --font-lc002: "Basteleur", var(--font-title);   /* pending #6 (the Panel has Cormorant Garamond) */
+  --font-lc002: "Cormorant Garamond", var(--font-title);   /* decision #6 */
   --font-lc003: "Struggle", var(--font-title);
   --font-lc004: "Federo", var(--font-title);
 
@@ -80,6 +81,7 @@
   --weight-text: 400;           /* Mattone Regular */
   --weight-long-head: 700;      /* Spectral Bold: section titles in long reads */
   --weight-long-text: 500;      /* Spectral Medium: text in long reads */
+  --weight-doc-title: 500;      /* Spectral Medium: titles in documents (decision #31); SemiBold 600 to compare */
 
   /* ---- Type: sizes, desktop (phones below) ---------------------------- */
   --font-size: 18px;            /* the root size: 1rem */
@@ -98,7 +100,7 @@
   --size-long-title: 46px;        /* Mattone */
   --size-long-standfirst: 22px;   /* Mattone */
   --size-long-head: 34px;         /* Spectral Bold */
-  --size-long-body: 18px;         /* Spectral Medium (pending #9: live is 20px) */
+  --size-long-body: 20px;         /* Spectral Medium (decision #9) */
   --measure: 42em;                /* about 73 characters a line (pending #10) */
 
   /* ---- Space and lines ------------------------------------------------ */
@@ -132,7 +134,7 @@
     --size-long-title: 32px;
     --size-long-standfirst: 18px;
     --size-long-head: 28px;
-    --size-long-body: 16px;     /* pending #9: live is 17px */
+    --size-long-body: 17px;     /* Spectral Medium on phones (decision #9) */
 
     --pad: 12px;
   }

@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light">
 <title>[Title of the document] · Lacande</title>
 <!--
-  Lacande HTML output template · DRAFT v1 · 2026-10-20
+  Lacande HTML output template · DRAFT v1 · 2026-10-21
   For the documents and reports Hermes and Claude Code write.
   Rules: hermes-knowledge/design/LACANDE-DESIGN.md (§11 "Documents and HTML outputs").
 
@@ -42,6 +42,7 @@
 
   --font-title: "Lacande Spectral", "Spectral", Georgia, "Times New Roman", serif;
   --font-text: "Lacande Mattone", "Mattone", Arial, Helvetica, sans-serif;
+  --weight-doc-title: 500;   /* Spectral Medium for titles in documents (decision #31) */
 
   --font-size: 18px;
   --size-title: 42px;     --lh-title: 1.15;
@@ -86,6 +87,8 @@
   src: local("Spectral"), local("Spectral Regular"), local("Spectral-Regular"); }
 @font-face { font-family: "Lacande Spectral"; font-weight: 500; font-style: normal;
   src: local("Spectral Medium"), local("Spectral-Medium"); }
+@font-face { font-family: "Lacande Spectral"; font-weight: 600; font-style: normal;
+  src: local("Spectral SemiBold"), local("Spectral-SemiBold"); }  /* to compare with 500 (decision #31) */
 @font-face { font-family: "Lacande Spectral"; font-weight: 700; font-style: normal;
   src: local("Spectral Bold"), local("Spectral-Bold"); }
 @font-face { font-family: "Lacande Mattone"; font-weight: 400; font-style: normal;
@@ -161,7 +164,7 @@ main {
 .doc-head { display: grid; gap: 1rem; }
 .doc-head h1 {
   font-family: var(--font-title);
-  font-weight: 400;
+  font-weight: var(--weight-doc-title);
   font-size: var(--size-title);
   line-height: var(--lh-title);
 }
@@ -172,7 +175,7 @@ main {
 .part > * + * { margin-top: 1.2rem; }
 .part h2 {
   font-family: var(--font-title);
-  font-weight: 400;
+  font-weight: var(--weight-doc-title);
   font-size: var(--size-section);
   line-height: 1.3;
 }
@@ -305,7 +308,7 @@ main {
         </thead>
         <tbody>
           <tr><td>LC-001</td><td>Jazz Impressions</td><td>Bauhaus 93</td><td class="num">85€</td></tr>
-          <tr><td>LC-002</td><td>Sonata in Venetian Rose</td><td>Basteleur</td><td class="num">85€</td></tr>
+          <tr><td>LC-002</td><td>Sonata in Venetian Rose</td><td>Cormorant Garamond</td><td class="num">85€</td></tr>
           <tr><td>LC-003</td><td>Isola Paradiso</td><td>Struggle</td><td class="num">85€</td></tr>
           <tr><td>LC-004</td><td>Nuit d'Amour</td><td>Federo</td><td class="num">85€</td></tr>
         </tbody>
