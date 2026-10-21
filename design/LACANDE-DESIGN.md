@@ -419,11 +419,11 @@ Anything not listed is out.
 |---|---|---|---|
 | **LC-** | candles, and the playlist that comes with each candle (the candle's édition) | LC-001 Jazz Impressions | G II; PNL; decision #26 |
 | **AS-** | matchbox éditions | AS-001 | PNL; HK |
-| **CP-** | curated playlists with no candle | CP-007 Calypso Blues | PL D023; HK; decision #26 |
+| **CP-** | curated playlists with no candle | Calypso Blues CP-003 | PL D023; HK; decision #26 |
 
 - Three digits. **The number is a fact,** set small in capitals, never a hero, never big (CS rules.md).
 - **A playlist with a candle is that candle's édition.** It carries the candle's LC number. There is never a CP number and an LC number for the same thing. A playlist without perfume that later gets one is promoted to LC, and its CP number is retired (decision #26).
-- **The four candle playlists carry LC numbers.** The other early playlists with no candle (Sorgente Egeria, Sketches in Sepia) take CP numbers in issue order (decision #26). A gap from CP-003 to CP-006 remains before Calypso Blues (CP-007); to check against the playlist tool's record.
+- **The four candle playlists carry LC numbers.** The playlists with no candle are numbered in issue order with no gaps: Sorgente Egeria and Sketches in Sepia take CP-001 and CP-002 (in the order they were issued), and **Calypso Blues becomes CP-003** (it was CP-007; Leon, 2026-10-21).
 - **Name a playlist with its candle:** "Jazz Impressions · LC-001" (CS rules.md).
 - **A hors-série** is a playlist with no candle: listed after the éditions, more plainly (WDS §9; POS §0).
 - **The kind line:** "Perfumed candle · LC-002" (G VII).
@@ -568,7 +568,7 @@ Not changed here. Each one belongs to the project it names.
 - **NFC app:** the Lacande brand preset (fonts uploaded, candle colours, shadow off) and the proposals shown to Leon before any change (decisions #1 and #20). Hover on candle pages in the website CSS (decision #7).
 - **Render tool and Serigrafia:** their design docs replaced by a pointer and the plate rules, through pull requests (decision #19), as a later step.
 - **Lettera:** its `VOICE.md` rewritten, when Lettera resumes (decision #23).
-- **Playlist numbers:** check the gap from CP-003 to CP-006 before CP-007 (decision #26).
+- **Playlist numbers:** in the website, the NFC app and the playlist tool, give the four candle playlists their candle's LC number, Sorgente Egeria and Sketches in Sepia CP-001 and CP-002, and Calypso Blues CP-003 instead of CP-007 (decision #26).
 
 ---
 
