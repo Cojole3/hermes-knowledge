@@ -1,7 +1,7 @@
 # Lacande Website
 
 The public editorial website and future shop of Lacande, at lacanderecords.fr. **Top priority.**
-Updated: 2026-10-20
+Updated: 2026-10-21
 
 ## What it is
 **Pages:**
@@ -25,6 +25,10 @@ Updated: 2026-10-20
   - point analytics at a public ERP address;
   - buy the Kirby licence;
   - remove noindex.
+
+## Latest (2026-10-20 evening)
+- Commit 162973f: production settings file for the live host (debug off, analytics off, noindex on). Secrets live only on the server (gitignored).
+- Prepares updates where the server pulls from GitHub instead of FileZilla (decision pending).
 
 ## Security note
 **Fixed 2026-10-20:** Kirby on the live server went from 5.5.2 to **5.6.1** (security release; repo and server verified identical). The live site is still an old design build, but the CMS is patched. Also new: `tools/snapshot` (offline copy of the site as a zip) and an updated server doc (`docs/lacande-infrastructure-v4.md`) covering the hardened server.

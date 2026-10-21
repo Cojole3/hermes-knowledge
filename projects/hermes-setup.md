@@ -1,7 +1,7 @@
 # Hermes setup
 
 This assistant: Hermes Agent running on the OVH VPS, reachable only through Leon's VPN.
-Updated: 2026-10-20
+Updated: 2026-10-21
 
 ## What it is
 - **Hermes Agent v0.22.2** runs in a Docker container on the VPS that also hosts the Lacande website. It's isolated from the website.
@@ -20,6 +20,8 @@ Updated: 2026-10-20
   - "ask first" rules are in the standing instructions.
 
 ## Status
+**Design (20 Oct):** a draft central Lacande design document (v1) now exists in `design/` (rules, tokens.css, HTML template, DECISIONS-NEEDED.md with 31 open points), awaiting Leon.
+
 **Being set up.** Day 1 (20 Oct) done: server hardened, monitoring and phone alerts, knowledge base syncing. Decided: Hermes never gets GitHub write access (code changes go via Claude Code PRs); own interface later. Next: 11c repo access + nightly review (running), 11d Claude Code routine, website deploy method, push local-only projects to GitHub.
 
 **Next:**
