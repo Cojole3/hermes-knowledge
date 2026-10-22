@@ -23,7 +23,7 @@ Updated: 2026-10-22
 
 ## Status
 - **Pre-launch.**
-- **Website:** the session notes of 2026-10-21 say the current build went live that day. The older project page still describes the old build with noindex. The website's own repository is the authority.
+- **Website:** the current build went live on 2026-10-21 (confirmed in the repo's `docs/STATE.md`). Noindex is still on.
 - **NFC Candle app:** deployed, but no production chips exist yet.
 - **LacandERP:** live.
 - **Launch gate, what remains:** real candle copy and prices; the newsletter; the analytics address; the Kirby licence; removing noindex.
