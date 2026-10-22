@@ -26,3 +26,9 @@ Session note · Date: 2026-10-21 · Project: Lacande Website · Session 130 · R
 
 ## Key files and docs touched
 - `Lacande Website/docs/LOG.md`, `docs/STATE.md`, `docs/ROADMAP.md`. Capture and render scripts in the session scratchpad only (`pw/capture-lacande.mjs`, `pw/bench.mjs`, `pw/proposals.mjs`).
+
+## Session 130.1 (2026-10-22): the choices built
+- Leon chose: P1a with one fixed shape for the first frame on every phone (369 : 441), P2a, P3, P4 two a row, P5a with the record centred under the last item; the crumb (P6) visualised only, three strips to pick from; and a new ask: more air at the end of a candle and a ruled line naming the next one, like the Matchbox Archive's pager, on phones and desktop.
+- All built on the site and verified on three phone sizes and desktop; committed. The "Next" line had existed but the sequence script hid it once the next candle loaded; it stays now.
+- The audit page corrected (phone viewport 393 × 659, not 852) and extended with part 7: https://claude.ai/artifact/CtFAaNcPf1Mg4Hq7i62j14.
+- Open: the crumb's size (Claude's pick c, 18 px, no space round the slash), P7 the cart button, N1 the disabled Add to cart before launch.
