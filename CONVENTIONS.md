@@ -47,6 +47,8 @@ When Leon closes a task, Hermes:
 3. files each new document in docs/ with front matter and an index line;
 4. updates the parent README if a child's status changed.
 
+The same applies outside a task: whenever Hermes corrects a memory.md (a stale fact, a wrong status), it adds one dated line to that box's log.md saying what was corrected and why. Memory shows the present; the log shows how it got there.
+
 ## Session notes in journal/
 - journal/ is the inbox. Claude Code writes one note per work session: journal/YYYY-MM-DD-project-short-title.md.
 - Hermes reads each new note, files its content into the right box (memory, log, docs), and marks the note processed by adding `processed: YYYY-MM-DD` to its front matter.
