@@ -42,3 +42,8 @@ Session note · Date: 2026-10-21 · Project: Lacande Website · Session 130 · R
 - Built: the first frame as option B (the frame takes what the caption leaves, the line at the fold on every phone); the Candles intro's "… More +" at the end of the third line, as Diptyque.
 - To decide, rendered as whole phone screens: the crumb (a no space round the slash, b the same at 20 px, c at 18 px; Claude's pick c) and "Add to cart" (a drawn disabled with "Available soon", b a Notify me link, c the filled button reading "Notify me" with the matchboxes' email field; Claude's pick c).
 - The audit page is now newest-first: part A the latest round, part B rounds 1 and 2, then the audit. Version 5.
+
+## Session 130.4 (2026-10-22): the crumb built
+- Leon chose c: the crumb and cart count at 18 px on phones, no space round the slashes, and the band shrunk in proportion (58 px instead of 73, the text still centred). Built and committed; the menu's masthead follows.
+- "Add to cart": Leon's decision, nothing changes; the button stays as it will work once the shop opens.
+- Audit page version 6, part A updated. Open: P7 the cart button, N5, N2 to N4.
