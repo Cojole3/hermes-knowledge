@@ -37,3 +37,8 @@ Session note · Date: 2026-10-21 · Project: Lacande Website · Session 130 · R
 - The first frame: Leon's rule is that the line is always at the bottom of the screen and the picture takes a fixed part of the screen (the crop varies). Built so: the picture is 75 % of the height under the band on every phone, verified on four sizes. The fixed-shape version of 130.1 is undone.
 - The candle's "Next" line: a small thing under the picto (13 px desktop, 11 px phone), no ruled box.
 - The audit page got a table of contents, a dated band and the four options for the first frame (A built, B the old frame with the caption higher, C fixed shape, D screen units).
+
+## Session 130.3 (2026-10-22): round 3
+- Built: the first frame as option B (the frame takes what the caption leaves, the line at the fold on every phone); the Candles intro's "… More +" at the end of the third line, as Diptyque.
+- To decide, rendered as whole phone screens: the crumb (a no space round the slash, b the same at 20 px, c at 18 px; Claude's pick c) and "Add to cart" (a drawn disabled with "Available soon", b a Notify me link, c the filled button reading "Notify me" with the matchboxes' email field; Claude's pick c).
+- The audit page is now newest-first: part A the latest round, part B rounds 1 and 2, then the audit. Version 5.
