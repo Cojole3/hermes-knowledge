@@ -38,6 +38,7 @@ Hermes is Leon's assistant. It runs on his server and keeps this knowledge base:
 - When unsure where something goes, or what Leon wants, ask.
 - Before closing a coding task, follow lacande/coding/playbooks/housekeeping-review.md.
 - A task stays open until Leon closes it. Closing a task starts housekeeping (see CONVENTIONS.md).
+- Every task has a task file in its box, kept by Hermes (skill centre-task), so the centre can show it.
 - If a project's own repository or docs disagree with this knowledge base, the project wins.
 
 ## Where to look

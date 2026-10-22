@@ -60,6 +60,9 @@ The same applies outside a task: whenever Hermes corrects a memory.md (a stale f
 - playbooks/ are followed when a situation matches.
 - Reading order is always top-down: GLOBAL, domain memory, category memory, box memory.
 
+## Task files
+Every task Leon gives (in the centre or in chat) is one file in its box: `<box>/tasks/<id>.md`, with a front matter the centre reads (status, kind, ask, summary, todos, round, session). Hermes writes and updates it; the skill centre-task says how. The centre never writes it. Closed tasks keep their file as the record.
+
 ## The catalogue
 CATALOG.md at the top is rebuilt every night by the server from every document's front matter and every docs/INDEX.md. Nobody edits it by hand. To find a document, search CATALOG.md first.
 
