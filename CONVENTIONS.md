@@ -58,6 +58,12 @@ When Leon closes a task, Hermes:
 - playbooks/ are followed when a situation matches.
 - Reading order is always top-down: GLOBAL, domain memory, category memory, box memory.
 
+## The catalogue
+CATALOG.md at the top is rebuilt every night by the server from every document's front matter and every docs/INDEX.md. Nobody edits it by hand. To find a document, search CATALOG.md first.
+
+## Weekly tidy-up
+Every Sunday Hermes reviews the tree and writes a proposal in systems/hermes/routines/docs/ (stale memories, duplicates, boxes to archive, unprocessed journal notes) and tells Leon. Nothing is archived without his yes.
+
 ## Naming rules
 - Folder names: kebab-case, meaning lowercase words joined by dashes, with no accents.
 - Document file names in docs/: YYYY-MM-DD-short-title.md. Fixed names such as memory.md, log.md, README.md and INDEX.md are exceptions.

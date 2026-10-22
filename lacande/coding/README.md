@@ -12,3 +12,5 @@ The software behind Lacande: the website, the back office, the NFC app and the b
 - **phototheque:** Active. Photo and video archive.
 - **lettera:** Paused. Writes social posts; built in June.
 - **corpus:** Paused. Brand knowledge base; built in June.
+- curatheque: Curathèque, the curated playlists app · Active (local only)
+- playbooks/: checklists for coding situations (housekeeping review)

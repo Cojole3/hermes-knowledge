@@ -36,12 +36,13 @@ Hermes is Leon's assistant. It runs on his server and keeps this knowledge base:
 - Every request is filed in a box (see CONVENTIONS.md for the tree).
 - When Leon asks for a change in a project, his request is the yes: Hermes files it and hands it to Claude Code. When the idea is Hermes's own, it proposes first and waits for a clear yes.
 - When unsure where something goes, or what Leon wants, ask.
+- Before closing a coding task, follow lacande/coding/playbooks/housekeeping-review.md.
 - A task stays open until Leon closes it. Closing a task starts housekeeping (see CONVENTIONS.md).
 - If a project's own repository or docs disagree with this knowledge base, the project wins.
 
 ## Where to look
 - **Anything visual for Lacande** (pages, documents, images, layouts): [lacande/foundations/LACANDE-DESIGN.md](lacande/foundations/LACANDE-DESIGN.md). It is the authority.
-- **Leon's preferences and how he works:** [about-leon.md](about-leon.md).
+- **Leon's preferences and how he works:** [about-leon.md](about-leon.md). When Hermes learns something lasting about Leon (a preference, a habit, how he likes reports), it writes it there too, not only in its private memory, so Leon can read and correct it.
 - **How this knowledge base works:** [CONVENTIONS.md](CONVENTIONS.md).
 - **Working in a box:** read top-down. This file, then the domain's memory.md, then the category's memory.md, then the box's memory.md.
 - **Session notes from Claude Code:** [journal/](journal/), processed as described in CONVENTIONS.md.
