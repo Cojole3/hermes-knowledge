@@ -47,3 +47,7 @@ Session note · Date: 2026-10-21 · Project: Lacande Website · Session 130 · R
 - Leon chose c: the crumb and cart count at 18 px on phones, no space round the slashes, and the band shrunk in proportion (58 px instead of 73, the text still centred). Built and committed; the menu's masthead follows.
 - "Add to cart": Leon's decision, nothing changes; the button stays as it will work once the shop opens.
 - Audit page version 6, part A updated. Open: P7 the cart button, N5, N2 to N4.
+
+## Session 130.5 (2026-10-22): live
+- The phone work of Sessions 130 to 130.4 is live on lacanderecords.fr (871bbd5, 22 Oct 14:26), pushed to GitHub and installed with `sudo website-update` over SSH (dry run first: 5 files, no content touched; backup taken; live tests passed). Noindex still on. Verified on a phone viewport against the public site.
+- Note for later: SSH from this PC works through the Windows OpenSSH agent (`C:\Windows\System32\OpenSSH\ssh.exe`), not Git Bash's ssh.
