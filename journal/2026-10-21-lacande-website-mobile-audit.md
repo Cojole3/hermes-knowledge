@@ -32,3 +32,8 @@ Session note · Date: 2026-10-21 · Project: Lacande Website · Session 130 · R
 - All built on the site and verified on three phone sizes and desktop; committed. The "Next" line had existed but the sequence script hid it once the next candle loaded; it stays now.
 - The audit page corrected (phone viewport 393 × 659, not 852) and extended with part 7: https://claude.ai/artifact/CtFAaNcPf1Mg4Hq7i62j14.
 - Open: the crumb's size (Claude's pick c, 18 px, no space round the slash), P7 the cart button, N1 the disabled Add to cart before launch.
+
+## Session 130.2 (2026-10-22): two corrections after Leon's phone
+- The first frame: Leon's rule is that the line is always at the bottom of the screen and the picture takes a fixed part of the screen (the crop varies). Built so: the picture is 75 % of the height under the band on every phone, verified on four sizes. The fixed-shape version of 130.1 is undone.
+- The candle's "Next" line: a small thing under the picto (13 px desktop, 11 px phone), no ruled box.
+- The audit page got a table of contents, a dated band and the four options for the first frame (A built, B the old frame with the caption higher, C fixed shape, D screen units).
