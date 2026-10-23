@@ -1,7 +1,7 @@
 # Lacande Website
 
 The public editorial website and future shop of Lacande, at lacanderecords.fr. **Top priority.**
-Updated: 2026-10-22
+Updated: 2026-10-23
 
 ## What it is
 **Pages:**
@@ -25,7 +25,21 @@ Updated: 2026-10-22
   - buy the Kirby licence;
   - remove noindex.
 
-## Latest (2026-10-20 evening)
+## Latest (2026-10-22)
+- **Phone work live** (commit 871bbd5, docs ceb50c0, Session 130): first frame one shape on every phone with the line at the fold; éditions and catalogue two a row; Candles intro clamped to three lines with "More +"; menu smaller with the record centred; crumb at 18 px; candle's Next line small under the picto.
+- **Note de l'éditeur** (Session 133, commit 4a1c733, local, not pushed): third text part on every candle page and playlist, signed in Michroma; "How it works" and "Caring for your candle" rows, editable in Site > Options. Leon writes every note himself.
+- **Scent cards** (Sessions 131, 132): Ingredient Library and Scent Cards pages link to each other; the 194 card backs proofread (1 wrong fact, 45 unproven, 114 new texts proposed) on the page "Scent Card Proof".
+- Server docs (2026-10-21): password login off for every account; crawl files held back while noindex is on.
+
+## Next steps
+- Leon writes the Notes de l'éditeur (four candles, seven playlists) and sets the months.
+- Leon answers five scent questions (rose, black olive, oak and rockrose in Jazz Impressions, myrrh and opoponax) and the "isolate" kind; then the choices are applied in the Panel.
+- Check the candle-care facts with the manufacturer.
+- Push the Note de l'éditeur work and four waiting ingredient commits; live only when Leon asks.
+- Record Michroma in the design documents; record the first-person exception if notes use "I".
+- Remaining mobile proposals: menu foot, cart button, playlist link row.
+
+## Earlier (2026-10-20 evening)
 - Commit 162973f: production settings file for the live host (debug off, analytics off, noindex on). Secrets live only on the server (gitignored).
 - Prepared updates where the server pulls from GitHub. Adopted 2026-10-21: FileZilla retired.
 
