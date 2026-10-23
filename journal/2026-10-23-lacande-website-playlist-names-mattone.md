@@ -5,7 +5,8 @@ Session note · Date: 2026-10-23 · Project: Lacande Website · Repo: https://gi
 - On the website's Music page, the playlist names are now set in Mattone (the house typeface, regular weight) in all three places they appear: under the record sleeves, on the back of the sleeve (the tracklist) and as the title of the About card.
 - Before, each name used its candle's own display typeface (for example Tournant Jazz in Bauhaus 93, Nuit d'Amour in Federo - Amour).
 - Checked in a browser on a phone size and a desktop size, before and after switching playlists: Mattone everywhere, nothing broken.
-- Committed in the website repo (Session 134), not yet put live on lacanderecords.fr.
+- Also fixed: clicking a record sleeve turns it over to show the tracklist, but clicking again did nothing. Now a click (or a tap on a phone) on the tracklist turns it back to the cover, as often as you like. Scrolling the tracklist or selecting a song title does not turn it (Session 134.1).
+- Committed in the website repo (Sessions 134 and 134.1), not yet put live on lacanderecords.fr.
 
 ## Decided (and why)
 - Leon prefers the playlist titles in the plain Mattone typeface. Each candle's own typeface is kept for the candle page only.
