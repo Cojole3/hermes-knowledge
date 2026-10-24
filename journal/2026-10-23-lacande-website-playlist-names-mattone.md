@@ -1,3 +1,6 @@
+---
+processed: 2026-10-24
+---
 # Lacande Website · Playlist names in Mattone
 Session note · Date: 2026-10-23 · Project: Lacande Website · Repo: https://github.com/Cojole3/Lacande-Website
 

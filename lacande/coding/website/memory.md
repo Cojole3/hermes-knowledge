@@ -1,7 +1,7 @@
 # Lacande Website
 
 The public editorial website and future shop of Lacande, at lacanderecords.fr. **Top priority.**
-Updated: 2026-10-23
+Updated: 2026-10-24
 
 ## What it is
 **Pages:**
@@ -15,7 +15,7 @@ Updated: 2026-10-23
 **Also:** a library of 194 ingredient "scent cards" and a content studio for social media templates.
 
 ## Status
-- **Live, current build (2026-10-21):** the site runs `main` (commit 162973f), installed by the server's update from GitHub. Debug off, analytics off, **noindex on** every page, secrets set (source: repo `docs/STATE.md`, checked 2026-10-22).
+- **Live build:** `main` up to c0032d5 (2026-10-23); later Music page commits wait for the next update. Base since 2026-10-21: 162973f, installed by the server's update from GitHub. Debug off, analytics off, **noindex on** every page, secrets set (source: repo `docs/STATE.md`, checked 2026-10-22).
 - **Launch gate**, everything that must happen before launch:
   - ~~deploy the current build~~ (done 2026-10-21);
   - ~~update Kirby on the server~~ (done 2026-10-20, Kirby 5.6.1);
@@ -24,6 +24,12 @@ Updated: 2026-10-23
   - point analytics at a public ERP address;
   - buy the Kirby licence;
   - remove noindex.
+
+## Latest (2026-10-23)
+- **PHP2Shell patched** (server session, e24c1d7): all ten PHP versions updated (site on 8.3.36), no sign of attack or compromise in 7 days of logs; backups first. Exploited in the wild since 17 Oct.
+- **Pushed, partly live:** the 9 local commits (Sessions 131 to 134, incl. Note de l'éditeur) are on GitHub. The server update put c0032d5 live: the Jazz Impressions perfume text edited in the Panel on 22 Oct, merged into Git so it is not lost.
+- **Music page** (Sessions 134 to 134.2, pushed, not yet live): playlist names in Mattone (candle typeface kept for the candle page; a Panel choice still wins); a click on the turned sleeve flips it back; the wheel over it scrolls the tracklist.
+- **Access documented** (infrastructure doc 2.1): the key file is the only door; Hermes has no server access by design; SFTP retired.
 
 ## Latest (2026-10-22)
 - **Phone work live** (commit 871bbd5, docs ceb50c0, Session 130): first frame one shape on every phone with the line at the fold; éditions and catalogue two a row; Candles intro clamped to three lines with "More +"; menu smaller with the record centred; crumb at 18 px; candle's Next line small under the picto.
@@ -35,7 +41,9 @@ Updated: 2026-10-23
 - Leon writes the Notes de l'éditeur (four candles, seven playlists) and sets the months.
 - Leon answers five scent questions (rose, black olive, oak and rockrose in Jazz Impressions, myrrh and opoponax) and the "isolate" kind; then the choices are applied in the Panel.
 - Check the candle-care facts with the manufacturer.
-- Push the Note de l'éditeur work and four waiting ingredient commits; live only when Leon asks.
+- Put the pushed work live (Sessions 131 to 134) when Leon asks.
+- Check the tracklist scrolling on Leon's iPhone (Safari not testable on the PC).
+- Consider disabling CloudPanel's FTP service (firewalled but listening).
 - Record Michroma in the design documents; record the first-person exception if notes use "I".
 - Remaining mobile proposals: menu foot, cart button, playlist link row.
 
@@ -69,6 +77,10 @@ Updated: 2026-10-23
   - `docs/GUIDELINES.md`
   - `docs/for Leon/lacande-positioning.md`
   - `docs/LOG.md`
+
+## Decisions
+- Playlist titles in plain Mattone; each candle's own typeface for the candle page only (2026-10-23).
+- Content rule: local is authoritative; a Panel edit is merged into Git before the next update (`website-update --accept-live`).
 
 ## Open questions
 - Launch date.
